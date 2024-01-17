@@ -44,5 +44,5 @@ jobs:
           END
       - name: Run deploy
         run: |
-          rsync -av dist a2cd:/usr/local/nginx/html/view/dist
+          rsync -avz --progress ./dist/ a2cd:/usr/local/nginx/html/view/dist/
           ssh a2cd "docker exec nginx nginx -s reload"
