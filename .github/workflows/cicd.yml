@@ -26,7 +26,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
-      - run: set -evx && pnpm run build
+      - run: set -evx && pnpm i && pnpm run build
       - name: Setup SSH
         env:
           SSH_HOST: ${{ secrets.SSH_HOST }}
