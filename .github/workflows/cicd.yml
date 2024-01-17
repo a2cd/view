@@ -1,0 +1,45 @@
+name: View CI/CD
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+env:
+  BUILD_GREETING: hello
+  SEGMENT_DOWNLOAD_TIMEOUT_MINS: '5'
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        node-version: [16]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4 # pull代码
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - run: set -evx && npm run build
+      - name: Setup SSH
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          HOST_KEY: a2cd # 不能用~/.ssh/a2cd.key作为value
+        run: |
+          mkdir -p ~/.ssh/ && echo "$SSH_PRIVATE_KEY" > ~/.ssh/$HOST_KEY.pri.key && chmod 600 ~/.ssh/$HOST_KEY.pri.key
+          cat >> ~/.ssh/config <<END
+          Host $HOST_KEY
+            HostName $SSH_HOST
+            User $SSH_USER
+            IdentityFile ~/.ssh/$HOST_KEY.pri.key
+            StrictHostKeyChecking no
+          END
+      - name: Run deploy
+        run: |
+          rsync -av dist a2cd:/usr/local/nginx/html/view/dist
+          ssh a2cd "docker exec nginx nginx -s reload"

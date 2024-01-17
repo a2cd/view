@@ -1,0 +1,9 @@
+// for redirect to index.html
+
+// 通过在根目录底下增加.spa 文件，Gitee Pages 服务器的 Nginx 规则就会自动变为
+// try_files $uri $uri.html /index.html $uri/ =404;
+
+// 当根目录没有 .spa 文件的时候，Gitee Pages 服务器的 Nginx 规则跟原来的一致，为
+// try_files $uri $uri.html $uri.md $uri/ =404;
+
+// [Gitee static pages](https://help.gitee.com/services/gitee-pages/spa-support)
