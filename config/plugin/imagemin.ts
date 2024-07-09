@@ -3,10 +3,10 @@
  * 图片压缩
  * https://github.com/anncwb/vite-plugin-imagemin
  */
-import viteImagemin from 'vite-plugin-imagemin';
+import viteImagemin from 'vite-plugin-imagemin'
 
 export default function configImageminPlugin() {
-  const imageminPlugin = viteImagemin({
+  return viteImagemin({
     gifsicle: {
       optimizationLevel: 7,
       interlaced: false,
@@ -32,6 +32,5 @@ export default function configImageminPlugin() {
         },
       ],
     },
-  });
-  return imageminPlugin;
+  })
 }

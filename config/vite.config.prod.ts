@@ -61,9 +61,11 @@ export default mergeConfig(
         },
       },
       chunkSizeWarningLimit: 2000,
+      minify: 'terser',
       terserOptions: {
         compress: {
-          drop_console: false, // 生产环境移除console
+          drop_console: true, // 生产环境移除console
+          drop_debugger: true
         },
       },
     },

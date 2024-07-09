@@ -7,11 +7,11 @@ const instance = axios.create({
 })
 
 instance.interceptors.request.use(req => {
-  console.log('req:', req)
+  // console.log('req:', req)
   return req
 })
 instance.interceptors.response.use(res => {
-  console.log('res:', res)
+  // console.log('res:', res)
   return res
 })
 
