@@ -17,6 +17,7 @@
   "dependencies": {
     "@arco-design/web-vue": "^2.54.2",
     "@vueuse/core": "^9.3.0",
+    "aplayer": "^1.10.1",
     "arco-design-pro-vue": "^2.7.2",
     "axios": "^0.24.0",
     "dayjs": "^1.11.5",

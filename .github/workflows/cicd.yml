@@ -19,10 +19,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4 # pull代码
-      - name: Print timezone info
-        run: |
-          date
-          timedatectl
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
