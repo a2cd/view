@@ -13,6 +13,8 @@ pnpm 依赖管理
 unplugin-vue-components 组件按需引用  
 .d.ts declaration file 声明文件  
 
+推main分支会跑github workflow
+
 
 
 

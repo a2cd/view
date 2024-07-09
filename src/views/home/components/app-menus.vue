@@ -76,6 +76,13 @@ const handleForward = (info: AppItemInfo) => {
 
 const apps: AppItemInfo[] = [
   {
+    name: '音乐播放器',
+    iconPath: '/img/avatar/ml.png',
+    externalLink: '',
+    routeName: 'Sounder',
+    params: {},
+  } as AppItemInfo,
+  {
     name: 'Theme Clock',
     iconPath: '/img/avatar/ml.png',
     externalLink: '',

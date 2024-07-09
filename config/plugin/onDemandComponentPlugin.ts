@@ -9,11 +9,11 @@
 import Components from 'unplugin-vue-components/vite'
 import {ArcoResolver} from 'unplugin-vue-components/resolvers'
 
-export default function configArcoResolverPlugin() {
-  return Components({
-    dirs: [], // 默认加载src/components中的组件，避免解析src/components
-    deep: false,
-    resolvers: [ArcoResolver()],
-    dts: 'src/components/components.d.ts'
-  })
+export default function onDemandComponentPlugin() {
+    return Components({
+        dirs: ['src/components'],
+        deep: true,
+        resolvers: [ArcoResolver({sideEffect: true})],
+        dts: 'src/components/components.d.ts'
+    })
 }

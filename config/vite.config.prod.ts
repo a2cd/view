@@ -4,9 +4,9 @@ import { createHtmlPlugin } from 'vite-plugin-html'
 import baseConfig from './vite.config.base'
 import configCompressPlugin from './plugin/compress'
 import configVisualizerPlugin from './plugin/visualizer'
-import configArcoResolverPlugin from './plugin/arcoResolver'
 import configImageminPlugin from './plugin/imagemin'
 import { genDistVersion } from './utils'
+import onDemandComponentPlugin from "./plugin/onDemandComponentPlugin";
 
 export default mergeConfig(
   {
@@ -16,7 +16,7 @@ export default mergeConfig(
     plugins: [
       configCompressPlugin('gzip'),
       configVisualizerPlugin(),
-      configArcoResolverPlugin(),
+      onDemandComponentPlugin(),
       configImageminPlugin(),
       createHtmlPlugin({
         minify: true,
