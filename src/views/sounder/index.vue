@@ -8,8 +8,10 @@
           @back="handleBack"
       ></a-page-header>
       <a-card :style="{ width: '100%' }"> 111 </a-card>
-      <sounder class="music-player" :musicList="musicList" :index="8" :lyrics="true" />
+      <Sounder class="music-player" :musicList="musicList" :index="8" :lyrics="true" />
       <icon-swap />
+      <icon-refresh />
+      <icon-close />
       <div v-for="(tag, index) in [1,2,3,4]" :key="tag"> 1</div>
       <!--<tab-item v-for="(tag, index) in [1,2,3,4]" :key="tag" :index="index" :item-data="tag" />-->
     </div>
@@ -18,8 +20,9 @@
 
 <script lang="ts" setup>
 import { useRouter } from 'vue-router'
-import TabItem from "@/components/tab-bar/tab-item.vue";
-// import Sounder from "@/components/sounder/index.vue";
+import Sounder from "@/components/sounder/index.vue";
+import {IconSwap, IconRefresh, IconClose} from '@arco-design/web-vue/es/icon';
+
 
 const router = useRouter()
 const handleBack = () => {

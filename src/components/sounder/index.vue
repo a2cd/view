@@ -582,14 +582,7 @@ const changeLrc = () => {
 // 	lrcContainer.scrollTop = index * lrcItemHeight;
 // 	console.log(index + '----------' + lrcContainer.scrollTop + '----------' + lrcItemHeight);
 // }
-</script>
 
-<script lang="ts">
-// import {defineComponent} from 'vue'
-//
-// export default defineComponent({
-//   name: 'sounder'
-// })
 </script>
 
 <style lang="less" scoped>

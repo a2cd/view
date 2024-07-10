@@ -17,6 +17,7 @@
     "skipLibCheck": true
   },
   "compileOnSave": true,
+  "files": ["components.d.ts"],
   "include": ["src/**/*", "src/**/*.vue"],
   "exclude": ["node_modules"]
 }

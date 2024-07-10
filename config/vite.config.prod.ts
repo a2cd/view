@@ -14,7 +14,7 @@ export default mergeConfig(
     base: '',
     publicPath: '', // 库名基础路径
     plugins: [
-      configCompressPlugin('gzip'),
+      configCompressPlugin('gzip', false),
       configVisualizerPlugin(),
       onDemandComponentPlugin(),
       configImageminPlugin(),
