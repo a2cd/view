@@ -1,11 +1,3 @@
-<!--
- * @Explain: xxx
- * @Author: SuperLy
- * @LastEditors: KuAi9
- * @Date: 2022-05-30 12:28:50
- * @LastEditTime: 2022-07-29 12:36:16
- * @FilePath: \lb-audio-v3\src\Audio\index.vue
--->
 <template>
   <div class="audio-container">
     <audio autoplay ref="audio" :src="musicList[playState.index].url" @play="playState.play = true;"></audio>
@@ -29,7 +21,7 @@
         }} </p>
       <!-- 控制器 -->
       <div class="control">
-
+        <icon-font type="icon-tianqi" :size="32"/>
         <!-- 上一首 -->
         <i class="iconfont icon-shangyishou" @click="previous"></i>
 

@@ -1,6 +1,5 @@
 import axios from 'axios'
-import { resourceUrl } from '@/utils/env'
-
+const resourceUrl = import.meta.env.VITE_RESOURCES_URL
 const instance = axios.create({
   baseURL: resourceUrl,
   timeout: 600000,

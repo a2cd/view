@@ -12,6 +12,9 @@
       <icon-swap />
       <icon-refresh />
       <icon-close />
+      <icon-font type="icon-tianqi" :size="64" />
+      <icon-font type="icon-zhuye" :size="64"/>
+      <icon-font type="icon-fensedemeiguihua" :size="64" :spin=true />
       <div v-for="(tag, index) in [1,2,3,4]" :key="tag"> 1</div>
       <!--<tab-item v-for="(tag, index) in [1,2,3,4]" :key="tag" :index="index" :item-data="tag" />-->
     </div>
@@ -20,10 +23,6 @@
 
 <script lang="ts" setup>
 import { useRouter } from 'vue-router'
-import Sounder from "@/components/sounder/index.vue";
-import {IconSwap, IconRefresh, IconClose} from '@arco-design/web-vue/es/icon';
-
-
 const router = useRouter()
 const handleBack = () => {
   router.push({

@@ -1,7 +1,6 @@
-import { debug } from './env'
-
+const debug = import.meta.env.MODE !== 'production'
 export default ({ mock, setup }: { mock?: boolean; setup: () => void }) => {
-  if (mock !== false && debug) setup()
+  if (mock && debug) setup()
 }
 
 export const successResponseWrap = (data: unknown) => {

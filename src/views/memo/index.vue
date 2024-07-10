@@ -75,8 +75,8 @@ import { onMounted } from 'vue'
 import dayjs from 'dayjs'
 import { CountdownItem, STATUS, TYPE } from '@/store/modules/memo/types'
 import { useMemoStore } from '@/store'
-import { resourceUrl } from '@/utils/env'
-import Footer from '@/components/footer/index.vue'
+
+const resourceUrl = import.meta.env.VITE_RESOURCES_URL
 
 const router = useRouter()
 const memoStore = useMemoStore()

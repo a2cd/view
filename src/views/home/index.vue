@@ -14,12 +14,9 @@
 
 <script lang="ts" setup>
 import { onMounted } from 'vue'
-import { resourceUrl } from '@/utils/env'
-import Footer from '@/components/footer/index.vue'
 import AppMenus from './components/app-menus.vue'
 
-// const data = reactive({})
-
+const resourceUrl = import.meta.env.VITE_RESOURCES_URL
 const bgUrl = `url(${resourceUrl}/img/bg/bg2.min.jpg)`
 
 onMounted(() => {})
