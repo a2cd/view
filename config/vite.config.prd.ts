@@ -10,7 +10,7 @@ import onDemandComponentPlugin from "./plugin/onDemandComponentPlugin";
 
 export default mergeConfig(
   {
-    mode: 'production',
+    mode: 'prd',
     base: '',
     publicPath: '', // 库名基础路径
     plugins: [

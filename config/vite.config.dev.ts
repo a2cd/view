@@ -5,7 +5,7 @@ import { genDistVersion } from './utils'
 
 export default mergeConfig(
   {
-    mode: 'development',
+    mode: 'dev',
     server: {
       open: true,
       fs: {

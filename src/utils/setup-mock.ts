@@ -1,4 +1,4 @@
-const debug = import.meta.env.MODE !== 'production'
+const debug = import.meta.env.MODE !== 'prd'
 export default ({ mock, setup }: { mock?: boolean; setup: () => void }) => {
   if (mock && debug) setup()
 }
