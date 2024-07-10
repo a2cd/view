@@ -2,7 +2,6 @@ import { mergeConfig } from 'vite'
 import { createHtmlPlugin } from 'vite-plugin-html'
 import baseConfig from './vite.config.base'
 import { genDistVersion } from './utils'
-import onDemandComponentPlugin from "./plugin/onDemandComponentPlugin";
 
 export default mergeConfig(
   {
@@ -14,7 +13,6 @@ export default mergeConfig(
       },
     },
     plugins: [
-      onDemandComponentPlugin(),
       createHtmlPlugin({
         minify: true,
         entry: '/src/main.ts', // 20230820002000 致命问题, 写法'src/main.ts'少一个/, 造成嵌套路由输入错误无法跳转到404页面
