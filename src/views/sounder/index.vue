@@ -9,6 +9,7 @@
       ></a-page-header>
       <a-card :style="{ width: '100%' }"> 111 </a-card>
       <Sounder class="music-player" :musicList="musicList" :index="8" :lyrics="true" />
+
       <icon-swap />
       <icon-refresh />
       <icon-close />
