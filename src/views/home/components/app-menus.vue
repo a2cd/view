@@ -78,6 +78,13 @@ const handleForward = (info: AppItemInfo) => {
 
 const apps: AppItemInfo[] = [
   {
+    name: '加密',
+    iconPath: '/img/avatar/ml.png',
+    externalLink: '',
+    routeName: 'Encryption',
+    params: {},
+  } as AppItemInfo,
+  {
     name: '音乐播放器',
     iconPath: '/img/avatar/ml.png',
     externalLink: '',
