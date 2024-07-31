@@ -76,12 +76,12 @@ const options = {
         "quantity": 1
       },
       "attract": {
-        "distance": 200,
-        "duration": 0.4,
+        "distance": 100,
+        "duration": 1,
         "easing": "ease-out-quad",
         "factor": 1,
-        "maxSpeed": 50,
-        "speed": 10
+        "maxSpeed": 10,
+        "speed": 5
       },
       "bounce": {
         "distance": 200
@@ -121,18 +121,18 @@ const options = {
         "quantity": 2
       },
       "repulse": {
-        "distance": 200,
-        "duration": 0.4,
+        "distance": 500,
+        "duration": 1,
         "factor": 100,
         "speed": 1,
-        "maxSpeed": 50,
+        "maxSpeed": 1,
         "easing": "ease-out-quad",
         "divs": {
-          "distance": 200,
-          "duration": 0.4,
+          "distance": 500,
+          "duration": 1,
           "factor": 100,
           "speed": 1,
-          "maxSpeed": 50,
+          "maxSpeed": 1,
           "easing": "ease-out-quad",
           "selectors": {}
         }
@@ -182,7 +182,7 @@ const options = {
   "manualParticles": [],
   "particles": {
     "number": {
-      "value": 66, // 粒子数量
+      "value": 100, // 粒子数量
       "limit": {
         "mode": "delete",
         "value": 666
@@ -247,13 +247,13 @@ const options = {
       },
       "decay": 0,
       "distance": {},
-      "direction": "top",
+      "direction": "top-left",
       "drift": 0,
       "gravity": {
         "enable": false,
         "acceleration": 9.81, // 重力加速度
         "inverse": false,
-        "maxSpeed": 50
+        "maxSpeed": 10
       },
       "path": {
         "clamp": true,
@@ -270,9 +270,9 @@ const options = {
         "right": "out",
         "top": "out"
       },
-      "random": false, // 随机
+      "random": true, // 随机
       "size": false,
-      "speed": 0.1, // 移动速度
+      "speed": 0.4, // 移动速度
       "spin": {
         "enable": false,
         "acceleration": 1
@@ -296,7 +296,7 @@ const options = {
     },
     "collisions": {
       "enable": false,
-      "maxSpeed": 50,
+      "maxSpeed": 10,
       "mode": "bounce",
       "absorb": {
         "speed": 5
@@ -354,7 +354,7 @@ const options = {
       "close": true,
       "fill": true,
       "options": {},
-      "type": "circle"
+      "type": ["circle"]
     },
     "size": {
       "value": {
@@ -525,11 +525,11 @@ const options = {
   "name": "Absorbers",
   "absorbers": {
     "color": {
-      "value": "#d95a1c"
+      "value": "#d93c29"
     },
     "draggable": true,
-    "opacity": 1,
-    "destroy": true,
+    "opacity": 0.5,
+    "destroy": false,
     "orbits": false,
     "size": {
       "value": {
@@ -543,8 +543,8 @@ const options = {
       }
     },
     "position": {
-      "x": 90, // 从左到右为x轴，值是百分比
-      "y": 20 // 从上到下为y轴，值是百分比
+      "x": 85, // 从左到右为x轴，值是百分比
+      "y": 25 // 从上到下为y轴，值是百分比
     }
   },
   "motion": {
