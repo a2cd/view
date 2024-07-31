@@ -41,7 +41,10 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           HOST_KEY: a2cd
         run: |
+          ls -l
           . scripts/cicd/funcs.sh
           setup_ssh
       - name: Run deploy
-        run: sync_files && reload_nginx
+        run: |
+          ls -l
+          sync_files && reload_nginx
