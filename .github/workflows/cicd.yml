@@ -20,21 +20,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4 # pull代码
-      - name: Print timezone info
+      - run: . scripts/cicd/funcs.sh
+      - name: print-timezone-info
         run: |
           date
           timedatectl
-      - name: Setup pnpm
+      - name: setup-pnpm
         uses: pnpm/action-setup@v2
         with:
           version: 9.5.0
-      - name: Setup Node.js ${{ matrix.node-version }}
+      - name: setup-node ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
-      - run: set -evx && pnpm i && pnpm run prd
-      - name: Setup SSH
+      - name: package
+        run: set -evx && pnpm i && pnpm run prd
+      - name: setup-ssh
         env:
           SSH_HOST: ${{ secrets.SSH_HOST }}
           SSH_USER: ${{ secrets.SSH_USER }}
@@ -43,7 +45,7 @@ jobs:
         run: |
           . scripts/cicd/funcs.sh
           setup_ssh
-      - name: Run deploy
+      - name: deploy
         run: |
           . scripts/cicd/funcs.sh
           sync_files && reload_nginx
