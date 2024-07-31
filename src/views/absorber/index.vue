@@ -76,7 +76,7 @@ const options = {
         "quantity": 1
       },
       "attract": {
-        "distance": 100,
+        "distance": 50,
         "duration": 1,
         "easing": "ease-out-quad",
         "factor": 1,
@@ -182,7 +182,7 @@ const options = {
   "manualParticles": [],
   "particles": {
     "number": {
-      "value": 100, // 粒子数量
+      "value": 66, // 粒子数量
       "limit": {
         "mode": "delete",
         "value": 666

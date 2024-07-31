@@ -33,16 +33,12 @@ jobs:
           cache: 'pnpm'
       - name: package
         run: set -evx && pnpm i && pnpm run prd
-      - name: |
-          . scripts/cicd/funcs.sh
-          setup-ssh
+      - name: setup-ssh
         env:
           SSH_HOST: ${{ secrets.SSH_HOST }}
           SSH_USER: ${{ secrets.SSH_USER }}
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           HOST_KEY: a2cd
-        run: setup_ssh
+        run: . scripts/cicd/funcs.sh && setup_ssh
       - name: deploy
-        run: |
-          . scripts/cicd/funcs.sh
-          sync_files && reload_nginx
+        run: . scripts/cicd/funcs.sh && sync_files && reload_nginx
