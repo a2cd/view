@@ -20,11 +20,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4 # pull代码
-      - run: . scripts/cicd/funcs.sh
+      - run: . scripts/cicd/funcs.sh # 加载shell
       - name: print-timezone-info
-        run: |
-          date
-          timedatectl
+        run: date && timedatectl
       - name: setup-pnpm
         uses: pnpm/action-setup@v2
         with:
@@ -42,10 +40,6 @@ jobs:
           SSH_USER: ${{ secrets.SSH_USER }}
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           HOST_KEY: a2cd
-        run: |
-          . scripts/cicd/funcs.sh
-          setup_ssh
+        run: setup_ssh
       - name: deploy
-        run: |
-          . scripts/cicd/funcs.sh
-          sync_files && reload_nginx
+        run: sync_files && reload_nginx
