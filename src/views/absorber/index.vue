@@ -115,7 +115,7 @@ const options = {
       "push": {
         "default": true,
         "groups": [],
-        "quantity": 10
+        "quantity": 1
       },
       "remove": {
         "quantity": 2
@@ -158,23 +158,6 @@ const options = {
             "value": "#000000"
           },
           "length": 2000
-        }
-      },
-      "absorbers": {
-        "color": {
-          "value": "#ffffff"
-        },
-        "draggable": false,
-        "opacity": 1,
-        "destroy": true,
-        "orbits": false,
-        "size": {
-          "value": 50,
-          "density": 5,
-          "limit": {
-            "radius": 0,
-            "mass": 0
-          }
         }
       }
     }
