@@ -24,6 +24,7 @@ jobs:
         run: |
           date
           timedatectl
+          . scripts/cicd/funcs.sh
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
@@ -33,13 +34,13 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
-      - run: set -evx && pnpm i && pnpm run build
+      - run: set -evx && pnpm i && pnpm run prd
       - name: Setup SSH
         env:
           SSH_HOST: ${{ secrets.SSH_HOST }}
           SSH_USER: ${{ secrets.SSH_USER }}
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          HOST_KEY: a2cd # 不能用~/.ssh/a2cd.key作为value
+          HOST_KEY: a2cd
         run: setup_ssh
       - name: Run deploy
         run: sync_files && reload_nginx
