@@ -30,7 +30,7 @@ import useChartOption from '@/hooks/chart-option'
 
 const barChartOptionsFactory = () => {
   const data = ref<any>([])
-  const { chartOption } = useChartOption(() => {
+  const { chartOption } = useChartOption(():any => {
     return {
       grid: {
         left: 0,
@@ -122,7 +122,7 @@ const lineChartOptionsFactory = () => {
 
 const pieChartOptionsFactory = () => {
   const data = ref<any>([])
-  const { chartOption } = useChartOption(() => {
+  const { chartOption } = useChartOption(():any => {
     return {
       grid: {
         left: 0,
