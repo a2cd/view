@@ -78,6 +78,13 @@ const handleForward = (info: AppItemInfo) => {
 
 const apps: AppItemInfo[] = [
   {
+    name: '黑洞',
+    iconPath: '/img/avatar/ml.png',
+    externalLink: '',
+    routeName: 'Absorber',
+    params: {},
+  } as AppItemInfo,
+  {
     name: '加密',
     iconPath: '/img/avatar/ml.png',
     externalLink: '',
