@@ -20,6 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4 # pull代码
+        run: . scripts/cicd/funcs.sh
       - name: Print timezone info
         run: |
           date
@@ -42,7 +43,6 @@ jobs:
           HOST_KEY: a2cd
         run: |
           ls -l
-          . scripts/cicd/funcs.sh
           setup_ssh
       - name: Run deploy
         run: |
