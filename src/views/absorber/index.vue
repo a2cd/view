@@ -185,7 +185,7 @@ const options = {
       "value": 66, // 粒子数量
       "limit": {
         "mode": "delete",
-        "value": 666
+        "value": 88
       },
       "density": {
         "enable": false,
