@@ -4,8 +4,6 @@
     <!-- 封面 -->
     <div class="cover">
       <div class="play-bar" @click="audioPlay" :title="musicList[playState.index].name">
-        <img src="@/assets/images/play-bar-middle.png" alt="">
-        <img :class="playState.play ? 'play' : 'stop'" src="@/assets/images/play-bar.png" alt="">
       </div>
       <img class="cover-img" :src="musicList[playState.index].img" :alt="musicList[playState.index].name" :style="{
                 transform: `rotate(-${playState.angle}deg)`
