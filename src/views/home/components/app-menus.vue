@@ -12,32 +12,21 @@
           :xxl="2"
           style="display: flex; justify-content: center; align-items: center; margin-top: 20px"
       >
-        <a-badge
-            v-if="item.externalLink !== ''"
-            text="E"
-            :dot-style="{ background: '#7BC616', color: 'white' }"
-            :offset="[-12, 12]"
-        >
-          <div class="menu-wrapper" @click="handleForward(item)">
-            <div style="width: 60px; height: 60px; margin: 10px auto 0 auto; overflow: hidden">
-              <img :src="resourceUrl + item.iconPath" style="width: 100%" alt="ml"/>
-            </div>
-            <div style="position: relative; bottom: 0">
-              <div style="width: 100px; height: 30px; font-size: 10px; text-align: center; line-height: 30px">
-                {{ item.name }}
-              </div>
-            </div>
-          </div>
-        </a-badge>
-        <div v-else class="menu-wrapper" @click="handleForward(item)">
+        <div class="menu-wrapper" @click="handleForward(item)">
           <div style="width: 60px; height: 60px; margin: 10px auto 0 auto; overflow: hidden">
-            <img :src="resourceUrl + item.iconPath" style="width: 100%" alt="ml"/>
+            <img :src="getAssetsUrl(item.iconPath)" style="width: 100%" alt="ml"/>
           </div>
           <div style="position: relative; bottom: 0">
             <div style="width: 100px; height: 30px; font-size: 10px; text-align: center; line-height: 30px">
               {{ item.name }}
             </div>
           </div>
+          <a-badge
+              v-if="item.externalLink !== undefined"
+              text="E"
+              :dot-style="{ background: '#7BC616', color: 'white' }"
+              :offset="[-20, -20]"
+          ></a-badge>
         </div>
       </a-col>
     </a-row>
@@ -46,11 +35,13 @@
 
 <script lang="ts" setup>
 import {useRouter} from 'vue-router'
+import {getAssetsUrl} from '@/utils/assets-reader'
 
 const docsUrl = import.meta.env.VITE_DOCS_URL
 const resourceUrl = import.meta.env.VITE_RESOURCES_URL
 
 const router = useRouter()
+
 
 interface AppItemInfo {
   name: string
@@ -61,7 +52,7 @@ interface AppItemInfo {
 }
 
 const handleForward = (info: AppItemInfo) => {
-  if (info.externalLink !== '') {
+  if (info.externalLink) {
     const a = document.createElement('a')
     a.setAttribute('href', info.externalLink)
     a.setAttribute('target', '_blank')
@@ -78,131 +69,100 @@ const handleForward = (info: AppItemInfo) => {
 
 const apps: AppItemInfo[] = [
   {
+    name: '工具室',
+    iconPath: '/img/icon/tool-room.svg',
+    routeName: 'ToolRoom',
+  } as AppItemInfo,
+  {
     name: '黑洞',
-    iconPath: '/img/avatar/ml.png',
-    externalLink: '',
+    iconPath: '/img/icon/black-hole.svg',
     routeName: 'Absorber',
-    params: {},
   } as AppItemInfo,
   {
     name: '加密',
-    iconPath: '/img/avatar/ml.png',
-    externalLink: '',
+    iconPath: '/img/icon/lock.svg',
     routeName: 'Encryption',
-    params: {},
   } as AppItemInfo,
   {
     name: '音乐播放器',
-    iconPath: '/img/avatar/ml.png',
-    externalLink: '',
+    iconPath: '/img/icon/music.svg',
     routeName: 'Sounder',
-    params: {},
   } as AppItemInfo,
   {
     name: 'Theme Clock',
-    iconPath: '/img/avatar/ml.png',
-    externalLink: '',
+    iconPath: '/img/icon/clock.svg',
     routeName: 'ThemeClock',
-    params: {},
   } as AppItemInfo,
   {
-    name: 'History Timeline',
-    iconPath: '/img/avatar/ml.png',
-    externalLink: '',
+    name: '历史时间轴',
+    iconPath: '/img/icon/timeline.svg',
     routeName: 'HistoryMap',
-    params: {},
   } as AppItemInfo,
   {
-    name: 'Poetry',
-    iconPath: '/img/avatar/ml.png',
-    externalLink: '',
+    name: '诗歌',
+    iconPath: '/img/icon/poetry.svg',
     routeName: 'Poetry',
-    params: {},
   } as AppItemInfo,
   {
-    name: 'Recipe',
-    iconPath: '/img/avatar/ml.png',
-    externalLink: '',
+    name: '菜谱',
+    iconPath: '/img/icon/recipe.svg',
     routeName: 'HistoryMap',
-    params: {},
   } as AppItemInfo,
   {
-    name: 'Vocabularies',
-    iconPath: '/img/avatar/ml.png',
-    externalLink: '',
+    name: '词汇',
+    iconPath: '/img/icon/vocabulary.svg',
     routeName: 'HistoryMap',
-    params: {},
   } as AppItemInfo,
   {
-    name: 'Album',
-    iconPath: '/img/avatar/ml.png',
-    externalLink: '',
-    routeName: 'HistoryMap',
-    params: {},
+    name: '相册',
+    iconPath: '/img/icon/album.svg',
+    routeName: 'Album',
   } as AppItemInfo,
   {
     name: 'Love Story',
-    iconPath: '/img/avatar/ml.png',
-    externalLink: '',
+    iconPath: '/img/icon/rose.svg',
     routeName: 'LoveStory',
-    params: {},
   } as AppItemInfo,
   {
     name: 'Memo',
-    iconPath: '/img/avatar/rick.min.jpg',
-    externalLink: '',
+    iconPath: '/img/icon/memo.svg',
     routeName: 'Memo',
-    params: {},
   } as AppItemInfo,
   {
     name: 'Random Number',
-    iconPath: '/img/avatar/ml.png',
-    externalLink: '',
+    iconPath: '/img/icon/dice.svg',
     routeName: 'RandomNumber',
-    params: {},
   } as AppItemInfo,
   {
     name: 'Movies',
-    iconPath: '/img/avatar/ml.png',
-    externalLink: '',
+    iconPath: '/img/icon/movie.svg',
     routeName: 'Movies',
-    params: {},
   } as AppItemInfo,
   {
     name: 'Books',
-    iconPath: '/img/avatar/ml.png',
-    externalLink: '',
+    iconPath: '/img/icon/book.svg',
     routeName: 'Movies',
-    params: {},
   } as AppItemInfo,
   {
     name: 'Stickers',
-    iconPath: '/img/avatar/ml.png',
-    externalLink: '',
+    iconPath: '/img/icon/sticker.svg',
     routeName: 'Stickers',
-    params: {},
   } as AppItemInfo,
   {
     name: 'Blogs',
-    iconPath: '/img/avatar/ml.png',
+    iconPath: '/img/icon/blog.svg',
     externalLink: 'https://www.cnblogs.com/caseor/',
-    routeName: '',
-    params: {},
   } as AppItemInfo,
-  {name: 'Docs', iconPath: '/img/avatar/ml.png', externalLink: docsUrl, routeName: '', params: {}} as AppItemInfo,
+  {name: 'Docs', iconPath: '/img/icon/doc.svg', externalLink: docsUrl} as AppItemInfo,
   {
     name: 'Static Resources',
-    iconPath: '/img/avatar/ml.png',
+    iconPath: '/img/icon/earth.svg',
     externalLink: resourceUrl,
-    routeName: '',
-    params: {},
   } as AppItemInfo,
   {
     name: 'Login',
-    iconPath: '/img/avatar/ml.png',
-    externalLink: '',
+    iconPath: '/img/icon/user.svg',
     routeName: 'Login',
-    params: {},
   } as AppItemInfo,
 ]
 </script>
