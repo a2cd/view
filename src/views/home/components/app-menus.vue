@@ -1,32 +1,20 @@
 <template>
   <div>
     <a-row justify="center" align="center">
-      <a-col
-          v-for="(item, index) in apps"
-          :key="index"
-          :xs="10"
-          :sm="8"
-          :md="5"
-          :lg="4"
-          :xl="3"
-          :xxl="2"
-          style="display: flex; justify-content: center; align-items: center; margin-top: 20px"
-      >
+      <a-col v-for="(item, index) in apps" :key="index" :xs="10" :sm="8" :md="5" :lg="4" :xl="3" :xxl="2"
+        style="display: flex; justify-content: center; align-items: center; margin-top: 20px">
         <div class="menu-wrapper" @click="handleForward(item)">
           <div style="width: 60px; height: 60px; margin: 10px auto 0 auto; overflow: hidden">
-            <img :src="getAssetsUrl(item.iconPath)" style="width: 100%" alt="ml"/>
+            <img :src="resourceUrl + item.iconPath" style="width: 100%" alt="ml" />
           </div>
+
           <div style="position: relative; bottom: 0">
             <div style="width: 100px; height: 30px; font-size: 10px; text-align: center; line-height: 30px">
               {{ item.name }}
             </div>
           </div>
-          <a-badge
-              v-if="item.externalLink !== undefined"
-              text="E"
-              :dot-style="{ background: '#7BC616', color: 'white' }"
-              :offset="[-20, -20]"
-          ></a-badge>
+          <a-badge v-if="item.externalLink !== undefined" text="E"
+            :dot-style="{ background: '#7BC616', color: 'white' }" :offset="[-20, -20]"></a-badge>
         </div>
       </a-col>
     </a-row>
@@ -34,14 +22,12 @@
 </template>
 
 <script lang="ts" setup>
-import {useRouter} from 'vue-router'
-import {getAssetsUrl} from '@/utils/assets-reader'
+import { useRouter } from 'vue-router'
 
 const docsUrl = import.meta.env.VITE_DOCS_URL
 const resourceUrl = import.meta.env.VITE_RESOURCES_URL
 
 const router = useRouter()
-
 
 interface AppItemInfo {
   name: string
@@ -153,7 +139,7 @@ const apps: AppItemInfo[] = [
     iconPath: '/img/icon/blog.svg',
     externalLink: 'https://www.cnblogs.com/caseor/',
   } as AppItemInfo,
-  {name: 'Docs', iconPath: '/img/icon/doc.svg', externalLink: docsUrl} as AppItemInfo,
+  { name: 'Docs', iconPath: '/img/icon/doc.svg', externalLink: docsUrl } as AppItemInfo,
   {
     name: 'Static Resources',
     iconPath: '/img/icon/earth.svg',
