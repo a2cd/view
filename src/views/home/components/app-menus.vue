@@ -55,6 +55,11 @@ const handleForward = (info: AppItemInfo) => {
 
 const apps: AppItemInfo[] = [
   {
+    name: 'Three',
+    iconPath: '/img/icon/tool-room.svg',
+    routeName: 'Three',
+  } as AppItemInfo,
+  {
     name: '工具室',
     iconPath: '/img/icon/tool-room.svg',
     routeName: 'ToolRoom',
